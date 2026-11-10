@@ -1,0 +1,58 @@
+{
+  "name": "agentflow",
+  "version": "0.1.0",
+  "description": "Durable LLM agent orchestration: NestJS API + Temporal workflows + Postgres/pgvector",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "start:api": "node dist/src/main.js",
+    "start:worker": "node dist/src/worker.js",
+    "dev:stack": "node dist/scripts/local-stack.js",
+    "typecheck": "tsc -p tsconfig.check.json",
+    "lint": "eslint .",
+    "test": "vitest run",
+    "bench": "npm run build && node dist/bench/recovery.js"
+  },
+  "keywords": [
+    "temporal",
+    "llm",
+    "agents",
+    "nestjs",
+    "pgvector"
+  ],
+  "type": "commonjs",
+  "dependencies": {
+    "@anthropic-ai/sdk": "^1.7.0",
+    "@nestjs/common": "^12.4.2",
+    "@nestjs/core": "^12.4.2",
+    "@nestjs/platform-express": "^12.4.2",
+    "@temporalio/activity": "^1.25.0",
+    "@temporalio/client": "^1.25.0",
+    "@temporalio/common": "^1.25.0",
+    "@temporalio/worker": "^1.25.0",
+    "@temporalio/workflow": "^1.25.0",
+    "pg": "^8.23.1",
+    "reflect-metadata": "^0.2.2",
+    "rxjs": "^7.8.2",
+    "zod": "^4.6.7"
+  },
+  "devDependencies": {
+    "@electric-sql/pglite": "^0.5.16",
+    "@electric-sql/pglite-pgvector": "^0.0.17",
+    "@electric-sql/pglite-socket": "^0.2.19",
+    "@eslint/js": "^10.0.1",
+    "@temporalio/testing": "^1.25.0",
+    "@types/express": "^5.0.6",
+    "@types/node": "^26.6.6",
+    "@types/pg": "^8.23.1",
+    "eslint": "^10.14.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^6.0.3",
+    "typescript-eslint": "^8.72.2",
+    "vitest": "^5.1.0"
+  },
+  "license": "MIT",
+  "private": true,
+  "engines": {
+    "node": ">=22"
+  }
+}
